@@ -1,45 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
-        <meta charset="UTF-8">
-        <title>Blackjack Game</title>
-        <!--Google Fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
+<head> 
+    <meta charset="UTF-8">
+    <title>Blackjack Game</title>
 
-        <header>
-            <h1>Blackjack</h1>
-        </header>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-        <main class="game-container">
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-            <section class="game-section">
-                <h2>Dealer</h2>
-                <div class="cards">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                </div>
-            </section>
-            <section class="game-section">
-                <h2>Player</h2>
-                <div class="cards">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                </div>
-            </section>
+<body>
 
-            <section class="actions">
-                <button>Hit</button>
-                <button>Stand</button>
-                <button>Double Down</button>
-                <button>Split</button>
-            </section>
-        </main>
+<header>
+    <h1>Blackjack</h1>
+    <button id="help-btn">How to Play</button>
+</header>
 
-    </body>
+<main class="game-container">
+
+    <section class="game-section">
+        <h2>Dealer</h2>
+        <p id="dealer-score">Score: ?</p>
+        <div class="cards" id="dealer-cards"></div>
+    </section>
+
+    <section class="game-section">
+        <h2>Player</h2>
+        <p id="player-score">Score: 0</p>
+        <div class="cards" id="player-cards"></div>
+    </section>
+
+    <p id="game-status">Game started. Your move!</p>
+
+    <section class="actions">
+        <button id="hit-btn">Hit</button>
+        <button id="stand-btn">Stand</button>
+        <button id="newgame-btn">New Game</button>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+<div id="rules-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal">&times;</span>
+
+        <h2>How to Play Blackjack</h2>
+
+        <h3>Objective</h3>
+        <ul>
+            <li>The goal is to have a hand value closer to 21 than the dealer without exceeding 21.</li>
+            <li>If your hand goes over 21, you lose immediately.</li>
+        </ul>
+
+        <h3>Card Values</h3>
+        <ul>
+            <li>Number cards (2–10) are worth their face value.</li>
+            <li>Face cards (Jack, Queen, King) are worth 10 each.</li>
+            <li>An Ace can be worth either 1 or 11, depending on which value keeps your total ≤ 21.</li>
+        </ul>
+
+        <h3>Gameplay</h3>
+        <ul>
+            <li>At the start, both you and the dealer receive two cards.</li>
+            <li>One of the dealer’s cards is hidden until your turn ends.</li>
+            <li>You can choose:
+                <ul>
+                    <li><strong>Hit:</strong> Take another card to increase your total.</li>
+                    <li><strong>Stand:</strong> Keep your current total and end your turn.</li>
+                </ul>
+            </li>
+            <li>You can take multiple hits until you stand or exceed 21.</li>
+        </ul>
+
+        <h3>Dealer Rules</h3>
+        <ul>
+            <li>After you stand, the dealer reveals the hidden card.</li>
+            <li>The dealer must draw cards until the total is at least 17.</li>
+            <li>The dealer stands on all 17s (including soft 17).</li>
+        </ul>
+
+        <h3>Winning Conditions</h3>
+        <ul>
+            <li>If your total exceeds 21, you lose (bust).</li>
+            <li>If the dealer exceeds 21, you win.</li>
+            <li>If neither busts:
+            <ul>
+                <li>Higher total wins.</li>
+                <li>Equal totals result in a tie (push).</li>
+            </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
 </html>
